@@ -276,6 +276,7 @@ def handle_form():
         # Render
         file_links = start_polly(file_holder, bib_holder)
     except (EOFError, AssertionError, Exception, UnicodeDecodeError, RuntimeError, TypeError, NameError, AttributeError, IndexError) as e:
+        delete_from_folder()
         return render_template('error.html')
 
     # redirect to home if nothing in file_links
